@@ -1,4 +1,4 @@
-<form method="POST" action="<?= URL ?>tarifTransporteur/mtv" enctype="multipart/form-data">
+<form method="POST" action="<?= URL ?>tarifsTransporteur/mtv" enctype="multipart/form-data">
     <h3>Modifier un tarif : </h3>
 <!--     <div class="form-group">
         <label for="idPrixPoids">Id Prix Poids : </label> -->

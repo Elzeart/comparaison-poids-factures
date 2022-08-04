@@ -17,8 +17,9 @@ class TarifController extends MainController {
         if(empty($_POST['idTransporteur'])){
             $this->tarifManager->affichageTarifsAll();
             $tarifs = $this->tarifManager->getTarif();
+            $nomTransp = $this->tarifManager->affichageNomTransporteurLieTarifs();
         } else {
-            $this->tarifManager->affichageTarif();
+            $nomTransp = $this->tarifManager->affichageTarif();
             $tarifs = $this->tarifManager->getTarif();
         }
         $data_page = [
@@ -26,13 +27,13 @@ class TarifController extends MainController {
             "page_title" => "Page de tarif transporteur",
             "transporteurs" => $transporteurs,
             "tarifs" => $tarifs,
+            "nomTransp" => $nomTransp,
             // "page_javascript"=> ['profil.js'],
             //"page_css"=> ['style.css'],
             "view" => "views/afficherPrixPoids.view.php",
             "template" => "views/common/template.php"
         ];
         $this->generatePage($data_page);
-        // var_dump($tarifs);
     }
     
     public function ajoutTarif(){
@@ -54,7 +55,7 @@ class TarifController extends MainController {
             $this->tarifManager->ajouterTarifBdd($_POST['valeurPoids'],$_POST['valeurPrix'],$_POST['idTransporteur']);
         } catch (Exception $e) {
         }
-        header('Location: ' . URL . "tarifTransporteur");
+        header('Location: ' . URL . "tarifsTransporteur");
     }
 
 /*     public function modifierTarifValidation(){
@@ -72,7 +73,7 @@ class TarifController extends MainController {
             $this->tarifManager->supprimerTarifBdd($id);
         } catch (Exception $e) {
     }
-        header('Location: ' . URL . "tarifTransporteur");
+        header('Location: ' . URL . "tarifsTransporteur");
     }
 
     public function modifierTarif($id){
@@ -99,7 +100,7 @@ class TarifController extends MainController {
         } catch (Exception $e) {
             Toolbox::addAlertMessage("La modification de la taxe a échoué", Toolbox::COULEUR_ROUGE);
         }
-        header('Location: ' . URL . "tarifTransporteur");
+        header('Location: ' . URL . "tarifsTransporteur");
     }
 
     public function errorPage($msg){

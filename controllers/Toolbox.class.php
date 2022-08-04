@@ -13,15 +13,6 @@ class Toolbox {
         ];
     }
 
-    public static function sendMail($receiver, $subject, $message){
-        $headers = "From: xxx@gmail.com";
-        if(mail($receiver, $subject, $message, $headers)){
-            self::addAlertMessage("Mail envoyé", self::COULEUR_VERTE);
-        } else {
-            self::addAlertMessage("Mail non envoyé", self::COULEUR_ROUGE);
-        }       
-    }
-
     public static function addImage($file, $dir){
         if(!isset($file['name']) || empty($file['name']))
             throw new Exception("Vous devez indiquer une image");

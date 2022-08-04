@@ -1,4 +1,4 @@
-<form method="POST" action="<?= URL ?>transporteur/mtv" enctype="multipart/form-data">
+<form method="POST" action="<?= URL ?>transporteurs/mtv" enctype="multipart/form-data">
     <h3>Modifier un transporteur : </h3>
     <div class="form-group">
         <label for="nomTransporteur">Nom Transporteur: </label>

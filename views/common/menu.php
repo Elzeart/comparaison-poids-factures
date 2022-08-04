@@ -7,33 +7,18 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <!--<> ON VERIFIE SI L'UTILISATEUR EST CONNECTE POUR L'AFFICHAGE DES PAGES <>--->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-          <?php if(!Security::isConnect()) : ?>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="<?= URL ?>login"></a>
-            </li>
-          <?php else : ?>
-<!--             <li class="nav-item ">
-              <a class="nav-link" aria-current="page" href="<?= URL ?>account/profile">Profil</a>
-            </li> -->
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="<?= URL ?>facturation/">Comparer</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="<?= URL ?>transporteur">Gestion des transporteurs</a>
+              <a class="nav-link" aria-current="page" href="<?= URL ?>transporteurs">Gestion des transporteurs</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="<?= URL ?>taxesTransporteur">Taxes transporteur</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="<?= URL ?>tarifTransporteur">Tarifs transporteurs</a>
+              <a class="nav-link" aria-current="page" href="<?= URL ?>tarifsTransporteur">Tarifs transporteurs</a>
             </li>
-<!--             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="<?= URL ?>facturation/h">Historique</a>
-            </li> -->
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="<?= URL ?>account/deconnexion">Déconnexion</a>
-            </li>
-          <?php endif; ?>
         </ul>
       </ul>
     </div>
@@ -46,12 +31,6 @@ nav{
   height:5em;
   margin-top: 2em;
 }
-
-
-
-/* a{
-  color: red;
-} */
 
 
 </style>

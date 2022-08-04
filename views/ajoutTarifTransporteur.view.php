@@ -1,4 +1,4 @@
-<form method="POST" name="idTransporteur" action="<?= URL ?>tarifTransporteur/atv" enctype="multipart/form-data">
+<form method="POST" name="idTransporteur" action="<?= URL ?>tarifsTransporteur/atv" enctype="multipart/form-data">
     <select name="idTransporteur">
 <!--         <option value="1">GLS</option>
         <option value="2">DHL</option>

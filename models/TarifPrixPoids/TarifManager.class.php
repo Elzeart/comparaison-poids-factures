@@ -17,31 +17,39 @@ class TarifManager extends MainManager {
         $req = $this->getBdd()->prepare("SELECT * FROM prix_poids");
         $req->execute();       
         $myTarifs = $req->fetchAll(PDO::FETCH_ASSOC);
-        $req->closeCursor();
+        // $req->closeCursor();
         foreach($myTarifs as $tarifs){
             $t = new Tarif(         $tarifs['idPrixPoids'],
                                     $tarifs['valeurPoids'],
                                     $tarifs['valeurPrix'],
                                     $tarifs['idTransporteur']);
             $this->ajoutPrixPoids($t);
-            //var_dump($t); 
-        //var_dump($t);
         }
     }
+
+    public function affichageNomTransporteurLieTarifs(){
+        $req2 = $this->getBdd()->prepare("SELECT nomTransporteur FROM transporteur INNER Join prix_poids On transporteur.idTransporteur = prix_poids.idTransporteur");
+        $req2->execute();
+        // $req2->closeCursor();       
+        return $nomTransp = $req2->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
     public function affichageTarif(){
         $req = $this->getBdd()->prepare("SELECT * FROM prix_poids WHERE idTransporteur = '" .$_POST['idTransporteur']. "' ORDER BY valeurPoids");
         $req->execute();       
         $myTarifs = $req->fetchAll(PDO::FETCH_ASSOC);
-        $req->closeCursor();
+        // $req->closeCursor();
         foreach($myTarifs as $tarifs){
             $t = new Tarif(         $tarifs['idPrixPoids'],
                                     $tarifs['valeurPoids'],
                                     $tarifs['valeurPrix'],
                                     $tarifs['idTransporteur']);
             $this->ajoutPrixPoids($t);
-            //var_dump($t); 
         }
+        $req2 = $this->getBdd()->prepare("SELECT nomTransporteur FROM transporteur INNER Join prix_poids On transporteur.idTransporteur = prix_poids.idTransporteur where prix_poids.idTransporteur = '" .$_POST['idTransporteur']. "' ");
+        $req2->execute();       
+        return $nomTransp = $req2->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getTarifById($id){

@@ -1,4 +1,4 @@
-<form method="POST" action="<?= URL ?>transporteur/atv" enctype="multipart/form-data">
+<form method="POST" action="<?= URL ?>transporteurs/atv" enctype="multipart/form-data">
     <div class="form-group">
         <label for="nomTransporteur">Nom Transporteur : </label>
         <input type="text" class="form-control" id="nomTransporteur" name="nomTransporteur">

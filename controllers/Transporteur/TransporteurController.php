@@ -24,8 +24,6 @@ class TransporteurController extends MainController {
             "template" => "views/common/template.php"
         ];
         $this->generatePage($data_page);
-        //var_dump($transporteurs);
-        //var_dump($taxes);
     }
 
     public function voirTransporteur($id){
@@ -41,7 +39,6 @@ class TransporteurController extends MainController {
             "template" => "views/common/template.php"
         ];
         $this->generatePage($data_page);
-        //var_dump($transporteur);
     }
 
     public function modifierTransporteur($id){
@@ -57,7 +54,6 @@ class TransporteurController extends MainController {
             "template" => "views/common/template.php"
         ];
         $this->generatePage($data_page);
-        //var_dump($transporteur);
     }
 
     public function ajouterTransporteur(){
@@ -70,7 +66,6 @@ class TransporteurController extends MainController {
             "template" => "views/common/template.php"
         ];
         $this->generatePage($data_page);
-        //var_dump($transporteur);
     }
 
     public function ajouterTransporteurValidation(){
@@ -78,7 +73,7 @@ class TransporteurController extends MainController {
             $this->transporteurManager->ajouterTransporteurBdd($_POST['nomTransporteur'],$_POST['calcul'], $_POST['colonnePoidsCsv'], $_POST['colonneRefCsv']);
         } catch (Exception $e) {
     }
-    header('Location: ' . URL . "transporteur");
+    header('Location: ' . URL . "transporteurs");
     }
 
     public function modifierTransporteurValidation(){
@@ -91,7 +86,7 @@ class TransporteurController extends MainController {
         } catch (Exception $e) {
             Toolbox::addAlertMessage("La modification du transporteur a échoué", Toolbox::COULEUR_ROUGE);
         }
-        header('Location: ' . URL . "transporteur");
+        header('Location: ' . URL . "transporteurs");
     }
 
     public function supprimerTransporteur($id){
@@ -99,7 +94,7 @@ class TransporteurController extends MainController {
             $this->transporteurManager->supprimerTransporteurBdd($id);
         } catch (Exception $e) {
         }
-        header('Location: ' . URL . "transporteur");
+        header('Location: ' . URL . "transporteurs");
     }
 
     public function errorPage($msg){
